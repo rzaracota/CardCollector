@@ -13,10 +13,28 @@ const pages = {
 
 var title = "Card Collector";
 
+function H3(props) {
+    return (<h3>{props.value}</h3>);
+}
+
 class App extends Component {
     componentDidMount() {
 	this.setState((prevState, props) => {
-	    return { page: "home", title: title };
+	    var newPage = "blueberry";
+	    
+	    if (props.path === '/') {
+		newPage = "home";
+	    } else {
+		if (props.path.charAt(0) === '/') {
+		    newPage = props.path.slice(1,
+					       props.path.length);
+		} else {
+		    newPage = props.path;
+		}
+	    }
+	    
+	    return { page: newPage, title: title,
+		     path: props.path };
 	});
     }
 
@@ -53,6 +71,7 @@ class App extends Component {
 		<Navigator activePage={currentPage} navItems={this.getNavItems()} />	    
 		<div className="container-fluid">
 		{page}
+		<H3 value={this.state ? this.state.path : null} />
 	    </div>
 	    </div>
 	);
