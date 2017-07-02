@@ -19,25 +19,38 @@ class App extends Component {
 	    return { page: "home", title: title };
 	});
     }
+
+    getNavItems() {
+	var navItems = [];
+
+	var keys = Object.keys(pages)
+	
+	for (var i = 0; i < keys.length; i++) {
+	    navItems.push(keys[i]);
+	}
+
+	return navItems;
+    }	
     
     render() {	
-	var page;
+	var page, currentPage;
 
 	if (this.state != null) {
 	    page = pages[this.state.page];
+	    currentPage = this.state.page;
 	} else {
 	    page = (<div className="button danger">
 		    <h1>Error 404: Unknown page</h1>
 		    </div>);
 	}
-	
+
 	return (
 		<div className="App">
 		<div className="App-header">
 		<img src={logo} className="App-logo" alt="logo" />
 		<h2>Welcome to {title}</h2>
 		</div>
-		<Navigator />	    
+		<Navigator activePage={currentPage} navItems={this.getNavItems()} />	    
 		<div className="container-fluid">
 		{page}
 	    </div>
