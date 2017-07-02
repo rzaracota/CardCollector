@@ -7,7 +7,8 @@ class Navigator extends Component {
   <div className="navbar-header">
     <a className="navbar-brand">Card Collector</a>
   </div>
-  <ul className="nav navbar-nav navbar-right">    
+		 <ul className="nav navbar-nav navbar-right">
+		 {this.props.navItems}
 		 <li><a href="#">Home</a></li>
 		 <li><a href="#">Sign up now!</a></li>
 		 <li><a href="#">Card Collections</a></li>
