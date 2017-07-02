@@ -3,11 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 
 import Navigator from './components/navigator';
+import Home from './components/home';
 import Profile from './components/profile';
 
 const pages = {
     'profile': <Profile />,
-    'home': <Profile />
+    'home': <Home />
 };
 
 var title = "Card Collector";
