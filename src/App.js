@@ -28,28 +28,8 @@ class App extends Component {
 
     componentDidMount() {
 	if (this.state == null || this.state.page === undefined) {
-	    console.log("Set state to home");
-	    
 	    this.setState({ page: default_page });
 	}
-
-	/*this.setState((prevState, props) => {
-	    var newPage = "blueberry";
-	    
-	    if (props.path === '/') {
-		newPage = "home";
-	    } else {
-		if (props.path.charAt(0) === '/') {
-		    newPage = props.path.slice(1,
-					       props.path.length);
-		} else {
-		    newPage = props.path;
-		}
-	    }
-	    
-	    return { page: newPage, title: title,
-		     path: props.path };
-	});*/
     }
 
     getNavItems() {

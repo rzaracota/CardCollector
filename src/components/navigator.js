@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import './navigator.css';
 
-function clickTest(page) {
-    window.location.href = "/";
-    console.log("onClick page: " + page);
-}
-
 function NElement(props) {
     var names = "button-inverse text-capitalize";
 
@@ -20,12 +15,8 @@ class Navigator extends Component {
     render() {
 	var navItems = [];
 
-	console.log("this.props.activePage: " + this.props.activePage);
-	
 	for (var i = 0; i < this.props.navItems.length; i++) {
 	    var isActive = (this.props.activePage === this.props.navItems[i]) ? true : false;
-
-	    console.log("isActive: " + isActive);
 	    
 	    navItems.push(<NElement key={i} isActive={isActive} target={this.props.navItems[i]} clickHandler={this.props.clickHandler} />);
 	}
