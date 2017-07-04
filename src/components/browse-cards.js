@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
 import CardDB from '../lib/card-database';
+import './card.css';
 
 class CardBrief extends Component {
     render() {
-	return (<p>{this.props.cards}</p>);
+	return (<li className="card-brief">{this.props.card.name}: Lvl: {this.props.card.lvl}</li>);
     }
 }
 
@@ -20,9 +21,9 @@ class BrowseCards extends Component {
 		cardBriefs.push(<CardBrief card={cards[i]} />);
 	    }
 	    
-	    return (<li>
+	    return (<ol>
 		    {cardBriefs}
-		    </li>);
+		    </ol>);
 	} else {
 	    return (<h3>No cards in db</h3>);
 	}

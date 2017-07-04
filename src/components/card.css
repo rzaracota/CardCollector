@@ -1,0 +1,11 @@
+.card-brief {
+    background-color: grey;
+    border-color: #020202;
+    border: solid 1px;
+    margin: 4px 0px 4px 0px;
+    padding: 4px 0px 4px 0px;
+}
+
+.card-brief:hover {
+    border-color: #00FA00;
+}
