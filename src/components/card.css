@@ -9,3 +9,7 @@
 .card-brief:hover {
     border-color: #00FA00;
 }
+
+.browse-image {
+    height: 24px;
+}

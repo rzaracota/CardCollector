@@ -5,7 +5,7 @@ import './card.css';
 
 class CardBrief extends Component {
     render() {
-	return (<div className="col-md-8 col-md-offset-2"><p className="card-brief">{this.props.itemNum}: {this.props.card.name}: Lvl: {this.props.card.lvl}</p></div>);
+	return (<div className="col-md-8 col-md-offset-2"><p className="text-left card-brief"><img className="image-responsive browse-image" src="/images/kittenator.png" alt="alt text" />{this.props.itemNum}: {this.props.card.name}: Lvl: {this.props.card.lvl}</p></div>);
     }
 }
 
