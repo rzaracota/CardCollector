@@ -1,0 +1,9 @@
+.button-inverse {
+  border-style: none;
+  font-family: sans-serif;
+  border-color: black;
+  background: black;
+  background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+  height: 50px;
+  padding: 0px 20px 0px 20px;
+}

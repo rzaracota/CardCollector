@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import './navigator.css';
+
+function clickTest() {
+    window.location.href = "/";
+}
 
 function NElement(props) {
     console.log("props.isActive: " + props.isActive);
     console.log("props.target: " + props.target);
     
-    return (<li className={(props.isActive) ? "active" : null}><a href={props.target} className="text-capitalize">{props.target}</a></li>);
+    return (<li className={(props.isActive) ? "active" : null}><button className="button-inverse text-capitalize" onClick={() => clickTest(props.target)}>{props.target}</button></li>);
 }
 
 class Navigator extends Component {
