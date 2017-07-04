@@ -5,10 +5,12 @@ import './App.css';
 import Navigator from './components/navigator';
 import Home from './components/home';
 import Profile from './components/profile';
+import BrowseCards from './components/browse-cards';
 
 const pages = {
     'profile': <Profile />,
-    'home': <Home />
+    'home': <Home />,
+    'browse-cards': <BrowseCards />
 };
 
 var title = "Card Collector";
