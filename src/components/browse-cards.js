@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 import CardDB from '../lib/card-database';
 import './card.css';
 
+const thisPage = 'browse-cards';
+
 class CardBrief extends Component {
     render() {
-	return (<div className="col-md-8 col-md-offset-2"><div className="row card-brief"><div className="col-md-1"><img className="image-responsive browse-image" src="images/kittenator.png" alt="alt text" /></div><div className="col-md-11"><p className="text-left">{this.props.itemNum}: {this.props.card.name}: Lvl: {this.props.card.lvl}</p></div></div></div>);
+	return (<div className="col-md-8 col-md-offset-2"><div className="row card-brief" onClick={() => this.props.clickHandler({ page: 'card-info', card: this.props.card}) }><div className="col-md-1"><img className="image-responsive browse-image" src="images/kittenator.png" alt="alt text" /></div><div className="col-md-11"><p className="text-left">{this.props.itemNum}: {this.props.card.name}: Lvl: {this.props.card.lvl}</p></div></div></div>);
     }
 }
 
@@ -18,7 +20,7 @@ class BrowseCards extends Component {
 	    var cardBriefs = [];
 
 	    for (var i = 0; i < cards.length; i++) {
-		cardBriefs.push(<CardBrief key={i} itemNum={i + 1} card={cards[i]} />);
+		cardBriefs.push(<CardBrief key={i} itemNum={i + 1} card={cards[i]} clickHandler={this.props.clickHandler} />);
 	    }
 	    
 	    return (<div className="row">

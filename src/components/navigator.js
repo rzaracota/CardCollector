@@ -8,7 +8,7 @@ function NElement(props) {
 	names += " active";
     }
     
-    return (<li><button className={names} onClick={() => props.clickHandler(props.target)}>{props.target}</button></li>);
+    return (<li><button className={names} onClick={() => props.clickHandler({page: props.target})}>{props.target}</button></li>);
 }
 
 class Navigator extends Component {

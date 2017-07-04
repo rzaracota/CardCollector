@@ -6,11 +6,13 @@ import Navigator from './components/navigator';
 import Home from './components/home';
 import Profile from './components/profile';
 import BrowseCards from './components/browse-cards';
+import CardInfo from './components/card-info';
 
 const pages = {
     'profile': <Profile />,
     'home': <Home />,
-    'browse-cards': <BrowseCards />
+    'browse-cards': <BrowseCards />,
+    'card-info': <CardInfo />
 };
 
 const default_page = 'browse-cards';
@@ -22,8 +24,8 @@ function H3(props) {
 }
 
 class App extends Component {
-    clickHandler(page) {
-	this.setState({ page: page });
+    clickHandler(props) {
+	this.setState({ page: props.page, props: props });
     }
 
     componentDidMount() {
@@ -48,7 +50,14 @@ class App extends Component {
 	var page, currentPage;
 
 	if (this.state != null) {
-	    page = pages[this.state.page];
+	    if (this.state.page === 'card-info') {
+		page = <CardInfo card={this.state.props.card} />;
+	    } else if (this.state.page === 'browse-cards') {
+		page = <BrowseCards clickHandler={this.clickHandler.bind(this)} />;
+	    } else {
+		page = pages[this.state.page];
+	    }
+
 	    currentPage = this.state.page;
 	} else {
 	    page = (<div className="button danger">
