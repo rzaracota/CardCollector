@@ -15,7 +15,7 @@ const pages = {
     'card-info': <CardInfo />
 };
 
-const default_page = 'browse-cards';
+const default_page = 'card-info';
 
 var title = "Card Collector";
 
@@ -51,7 +51,7 @@ class App extends Component {
 
 	if (this.state != null) {
 	    if (this.state.page === 'card-info') {
-		page = <CardInfo card={this.state.props.card} />;
+		page = <CardInfo card={this.state.props && this.state.props.card} />;
 	    } else if (this.state.page === 'browse-cards') {
 		page = <BrowseCards clickHandler={this.clickHandler.bind(this)} />;
 	    } else {
