@@ -18,8 +18,18 @@ function H3(props) {
 }
 
 class App extends Component {
+    clickHandler(page) {
+	this.setState({ page: page });
+    }
+
     componentDidMount() {
-	this.setState((prevState, props) => {
+	if (this.state == null || this.state.page === undefined) {
+	    console.log("Set state to home");
+	    
+	    this.setState({ page: "home" });
+	}
+
+	/*this.setState((prevState, props) => {
 	    var newPage = "blueberry";
 	    
 	    if (props.path === '/') {
@@ -35,7 +45,7 @@ class App extends Component {
 	    
 	    return { page: newPage, title: title,
 		     path: props.path };
-	});
+	});*/
     }
 
     getNavItems() {
@@ -68,7 +78,7 @@ class App extends Component {
 		<img src={logo} className="App-logo" alt="logo" />
 		<h2>Welcome to {title}</h2>
 		</div>
-		<Navigator activePage={currentPage} navItems={this.getNavItems()} />	    
+		<Navigator activePage={currentPage} navItems={this.getNavItems()} clickHandler={this.clickHandler.bind(this)} />	    
 		<div className="container-fluid">
 		{page}
 		<H3 value={this.state ? this.state.path : null} />
