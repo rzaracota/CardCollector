@@ -4,7 +4,7 @@ class Card {
 	this.type = "Sandfire";
 	this.hp = "135";
 	this.lvl = "70";
-	this.descriptions = "Though cute as a button and equally loving, \
+	this.description = "Though cute as a button and equally loving, \
 the kittenator would just as easily melt your face off when it is tired of \
 your attention";
     }
