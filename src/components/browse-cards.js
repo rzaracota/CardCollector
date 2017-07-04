@@ -5,7 +5,7 @@ import './card.css';
 
 class CardBrief extends Component {
     render() {
-	return (<div className="col-md-8 col-md-offset-2"><p className="card-brief">{this.props.card.name}: Lvl: {this.props.card.lvl}</p></div>);
+	return (<div className="col-md-8 col-md-offset-2"><p className="card-brief">{this.props.itemNum}: {this.props.card.name}: Lvl: {this.props.card.lvl}</p></div>);
     }
 }
 
@@ -18,7 +18,7 @@ class BrowseCards extends Component {
 	    var cardBriefs = [];
 
 	    for (var i = 0; i < cards.length; i++) {
-		cardBriefs.push(<CardBrief card={cards[i]} />);
+		cardBriefs.push(<CardBrief key={i} itemNum={i + 1} card={cards[i]} />);
 	    }
 	    
 	    return (<div className="row">
