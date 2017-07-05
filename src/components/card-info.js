@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import CardDB, { Card } from '../lib/card-database';
 
 function Attrib(props) {
-    return (<div className="row"><div className="col-md-2"><h4 className="text-right card-attrib-label">{props.attrib}</h4></div><div className="col-md-4">
+    return (<div className="row"><div className="col-md-2"><h4 className="text-right text-capitalize card-attrib-label">{props.attrib}</h4></div><div className="col-md-4">
 	    <p className="text-left card-attrib-text">{props.value}</p></div></div>);
 
 }
@@ -36,12 +36,13 @@ class CardInfo extends Component {
 		</div>
 		</div>
 		<div className="row">
-		<div className="col-md-2 col-md-offset-2">
-		<img src={this.props.card.icon} alt={"Icon for " + this.props.card.name} />
-		</div>
-		<div className="col-md-6">
+		<div className="col-md-8 col-md-offset-2">
 		<div className="row">
+		<div className="col-md-4">
+		<img className="img-responsive" src={this.props.card.icon} alt={"Icon for " + this.props.card.name} /></div>
+		<div className="col-md-8 card-brief">
 		{getAttribs(this.props.card)}
+	    </div>
 	    </div>
 	    </div>
 		</div>

@@ -10,6 +10,10 @@ class CardBrief extends Component {
 }
 
 class BrowseCards extends Component {
+    test(card) {
+	this.props.clickHandler({ page: 'card-info', card: card });
+    }
+
     render() {
 	var db = new CardDB();
 	var cards = db.getCards();

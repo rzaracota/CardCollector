@@ -5,3 +5,15 @@ body {
   background: black;
   color: white;
 }
+
+.debug-red {
+    background: red;
+}
+
+.debug-green {
+    background: green;
+}
+
+.debug-blue {
+    background: blue;
+}
