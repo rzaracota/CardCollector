@@ -15,7 +15,7 @@ const pages = {
     'card-info': <CardInfo />
 };
 
-const default_page = 'card-info';
+const default_page = 'browse-cards';
 
 var title = "Card Collector";
 
