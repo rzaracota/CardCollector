@@ -2,15 +2,14 @@ import { connect } from 'react-redux';
 
 import CardList from './card-list';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
-	cards: state[0].cards
+	cards: state[0].cards, clickHandler: ownProps.clickHandler
     };
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-	clickHandler: () => dispatch()
     }
 }
 

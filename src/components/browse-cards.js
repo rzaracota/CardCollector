@@ -20,7 +20,7 @@ class BrowseCards extends Component {
     }
 
     render() {
-	return <VisibleCardList />;
+	return <VisibleCardList clickHandler={this.props.clickHandler} />;
     }
 }
 
