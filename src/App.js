@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+import { collectDispatcher } from './lib/backend';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -9,6 +15,8 @@ import Home from './components/home';
 import Profile from './components/profile';
 import BrowseCards from './components/browse-cards';
 import CardInfo from './components/card-info';
+
+let store = createStore(collectDispatcher);
 
 const pages = {
     'profile': <Profile />,
@@ -57,7 +65,8 @@ class App extends Component {
 	    if (this.state.page === 'card-info') {
 		page = <CardInfo card={this.state.props && this.state.props.card} />;
 	    } else if (this.state.page === 'browse-cards') {
-		page = <BrowseCards clickHandler={this.clickHandler.bind(this)} />;
+		page = <BrowseCards clickHandler={this.clickHandler.bind(this)}
+		stateManager={this.state.sm} />;
 	    } else {
 		page = pages[this.state.page];
 	    }
@@ -70,6 +79,7 @@ class App extends Component {
 	}
 
 	return (
+		<Provider store={store}>
 		<div className="App">
 		<div className="App-header">
 		<img src={logo} className="App-logo" alt="logo" />
@@ -80,7 +90,8 @@ class App extends Component {
 		{page}
 		<H3 value={this.state ? this.state.page : null} />
 		</div>
-	    </div>
+		</div>
+		</Provider>
 	);
     }
 }

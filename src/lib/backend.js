@@ -15,9 +15,9 @@ const funcs = {
     }
 };
 
-function dispatcher(state = 0, action) {
+export function collectDispatcher(state = 0, action) {
     return funcs[action.type] && funcs[action.type](state);
-};
+}
 
 var id = 0;
 
@@ -25,7 +25,7 @@ class state_manager {
     constructor(clicker) {
 	this.id = id++;
 	
-	this.store = createStore(dispatcher);
+	this.store = createStore(collectDispatcher);
 
 	this.store.subscribe(() => {
 	    return console.log("state changed: " + this.store.getState());

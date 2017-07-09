@@ -10,6 +10,14 @@ class CardBrief extends Component {
 }
 
 class BrowseCards extends Component {
+    constructor(props) {
+	super();
+
+	this.stateManager = props.stateManager;
+
+	
+    }
+    
     test(card) {
 	this.props.clickHandler({ page: 'card-info', card: card });
     }
