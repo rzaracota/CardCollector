@@ -8,8 +8,6 @@ import { collectDispatcher } from './lib/backend';
 import logo from './logo.svg';
 import './App.css';
 
-import state_manager from './lib/backend';
-
 import Navigator from './components/navigator';
 import Home from './components/home';
 import Profile from './components/profile';
@@ -35,14 +33,12 @@ function H3(props) {
 
 class App extends Component {
     clickHandler(props) {
-	this.state.sm.test();
-
 	this.setState({ page: props.page, props: props });
     }
 
     componentDidMount() {
 	if (this.state == null || this.state.page === undefined) {
-	    this.setState({ page: default_page, sm: new state_manager() });
+	    this.setState({ page: default_page });
 	}
     }
 
@@ -66,7 +62,7 @@ class App extends Component {
 		page = <CardInfo card={this.state.props && this.state.props.card} />;
 	    } else if (this.state.page === 'browse-cards') {
 		page = <BrowseCards clickHandler={this.clickHandler.bind(this)}
-		stateManager={this.state.sm} />;
+		 />;
 	    } else {
 		page = pages[this.state.page];
 	    }

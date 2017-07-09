@@ -2,6 +2,9 @@ import { createStore } from 'redux';
 
 import CardDB from './card-database';
 
+var db = new CardDB();
+var cards = db.getCards();
+
 const funcs = {
     fib: function(state = 0, action) {
 	if (state === 0) {
@@ -17,10 +20,7 @@ const funcs = {
     },
 
     cards: function(state = 0, action) {
-     	var db = new CardDB();
-	var cards = db.getCards();
-
-	return [...state, { cards: cards }]; 
+	return [{ cards: cards }]; 
     }
 };
 
