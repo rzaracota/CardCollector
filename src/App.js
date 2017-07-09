@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import state_manager from './lib/backend';
+
 import Navigator from './components/navigator';
 import Home from './components/home';
 import Profile from './components/profile';
@@ -25,12 +27,14 @@ function H3(props) {
 
 class App extends Component {
     clickHandler(props) {
+	this.state.sm.test();
+
 	this.setState({ page: props.page, props: props });
     }
 
     componentDidMount() {
 	if (this.state == null || this.state.page === undefined) {
-	    this.setState({ page: default_page });
+	    this.setState({ page: default_page, sm: new state_manager() });
 	}
     }
 
