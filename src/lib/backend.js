@@ -1,5 +1,7 @@
 import { createStore } from 'redux';
 
+import CardDB from './card-database';
+
 const funcs = {
     fib: function(state = 0, action) {
 	if (state === 0) {
@@ -12,11 +14,22 @@ const funcs = {
 
 	    return [...state, n1 + n2];
 	}
+    },
+
+    cards: function(state = 0, action) {
+     	var db = new CardDB();
+	var cards = db.getCards();
+
+	return [...state, { cards: cards }]; 
     }
 };
 
 export function collectDispatcher(state = 0, action) {
-    return funcs[action.type] && funcs[action.type](state);
+    if (funcs[action.type]) {
+	return funcs[action.type](state);
+    } else {
+	return funcs["cards"](state);
+    }
 }
 
 var id = 0;
