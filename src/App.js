@@ -78,8 +78,8 @@ class App extends Component {
 		<Navigator activePage={currentPage} navItems={this.getNavItems()} clickHandler={this.clickHandler.bind(this)} />	    
 		<div className="container-fluid">
 		{page}
-		<H3 value={this.state ? this.state.path : null} />
-	    </div>
+		<H3 value={this.state ? this.state.page : null} />
+		</div>
 	    </div>
 	);
     }
