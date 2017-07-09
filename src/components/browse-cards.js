@@ -9,6 +9,29 @@ class CardBrief extends Component {
     }
 }
 
+class CardList extends Component {
+    componentDidMount() {
+	this.setState({ cards: this.props.cards });
+    }
+    
+    render() {
+	if (this.state && this.state.cards) {
+	    var cards = this.state.cards;
+	    var cardBriefs = [];
+
+	    for (var i = 0; i < cards.length; i++) {
+		cardBriefs.push(<CardBrief key={i} itemNum={i + 1} card={cards[i]} clickHandler={this.props.clickHandler} />);
+	    }
+	    
+	    return (<div className="row">
+		    {cardBriefs}
+		    </div>);
+	} else {
+	    return (<h3>No cards in db</h3>);
+	}
+    }
+}
+
 class BrowseCards extends Component {
     constructor(props) {
 	super();
@@ -26,19 +49,8 @@ class BrowseCards extends Component {
 	var db = new CardDB();
 	var cards = db.getCards();
 
-	if (cards) {
-	    var cardBriefs = [];
-
-	    for (var i = 0; i < cards.length; i++) {
-		cardBriefs.push(<CardBrief key={i} itemNum={i + 1} card={cards[i]} clickHandler={this.props.clickHandler} />);
-	    }
-	    
-	    return (<div className="row">
-		    {cardBriefs}
-		    </div>);
-	} else {
-	    return (<h3>No cards in db</h3>);
-	}
+	return <CardList cards={cards}
+	clickHandler={this.props.clickHandler} />;
     }
 }
 
